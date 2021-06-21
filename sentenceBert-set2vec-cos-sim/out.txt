@@ -1,0 +1,30 @@
+user question : name?
+matched training question : tell me your name?
+predicted answer : chatbot
+real answer : chatbot
+
+
+user question : enlighten me with your name
+matched training question : tell me your name?
+predicted answer : chatbot
+real answer : chatbot
+
+
+user question : what kind of work you do
+matched training question : what do you do?
+predicted answer : I chat
+real answer : I chat
+
+
+user question : where do you locate yourself
+matched training question : what is your location
+predicted answer : India
+real answer : India
+
+
+user question : Hello
+matched training question : hello
+predicted answer : hi
+real answer : hi
+
+
