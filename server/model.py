@@ -2,7 +2,6 @@ import numpy as np
 from log import Logger
 from sentence_transformers import SentenceTransformer
 
-Logger.clear()
 log = Logger.log
 
 def cosine(u, v):
@@ -12,13 +11,15 @@ def cosine(u, v):
 def load_model():
     log("loaded model")
     sBert = SentenceTransformer('/home/shambu/Desktop/Dev/py/chat-bot/sentenceBert-set2vec-cos-sim/models/bert-base-nli-mean-tokens')
-    t_embeddings = np.load("db.npy")
-    return sBert, t_embeddings
+    return sBert
 
 @Logger.wrap
-def find_similiar(qs, sBert, t_embeddings):
-    u_embedding = sBert.encode(qs)
+def find_similiar(qs, u_embedding, t_embeddings):
+    log(f'"{qs}"')
     cosine_matrix = cosine(t_embeddings, u_embedding.T)
     labels = np.argmax(cosine_matrix, axis=0)
     labels = np.squeeze(labels)
-    return labels
+    return labels, cosine_matrix[labels]
+
+if __name__ == '__main__':
+   Logger.clear()
