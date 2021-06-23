@@ -39,7 +39,7 @@ def answer():
         u_embedding = sBert.encode(qs)
         labels, similarity = find_similiar(qs, u_embedding, t_embeddings)
         
-        if similarity > 0.2:
+        if similarity > 0.1:
             return ANS_S[labels]
 
         return "Sorry I didn't get you!"
@@ -67,4 +67,5 @@ def add():
     return "Add OK"
 
 if __name__ == '__main__':
+    reload_db()
     app.run()

@@ -2,35 +2,21 @@ log_file = """
 ------------------Log File-------------------
 
 load_model: loaded model
-load_model: loaded model
-Question added to dataBase - what kinda work do you do
-Answer added: I Chat
-load_model: loaded model
-load_model: loaded model
-Question added to dataBase - what kinda work do you do
-Answer added: I Chat
-current QS: ['What is your name', 'hello', 'tell me your name?', 'what do you do?', 'locations', 'thank you so much', 'where do you live', 'what is your location', 'where do you live', 'what kinda work do you do', 'what kinda work do you do']
- Answers: ['chatbot', 'hi', 'chatbot', 'I chat', 'India', 'welcome', 'India', 'India', 'India', 'I Chat', 'I Chat']
-Question added to dataBase - how can i help you
-Answer added: I am here to help you not the other way round
-current QS: ['What is your name', 'hello', 'tell me your name?', 'what do you do?', 'locations', 'thank you so much', 'where do you live', 'what is your location', 'where do you live', 'what kinda work do you do', 'what kinda work do you do', 'how can i help you']
- Answers: ['chatbot', 'hi', 'chatbot', 'I chat', 'India', 'welcome', 'India', 'India', 'India', 'I Chat', 'I Chat', 'I am here to help you not the other way round']
-Question added to dataBase - how can i help you
-Answer added: I am here to help you not the other way round
-current QS: ['What is your name', 'hello', 'tell me your name?', 'what do you do?', 'locations', 'thank you so much', 'where do you live', 'what is your location', 'where do you live', 'what kinda work do you do', 'what kinda work do you do', 'how can i help you', 'how can i help you']
- Answers: ['chatbot', 'hi', 'chatbot', 'I chat', 'India', 'welcome', 'India', 'India', 'India', 'I Chat', 'I Chat', 'I am here to help you not the other way round', 'I am here to help you not the other way round']
-load_model: loaded model
-load_model: loaded model
-Question added to dataBase - how are you doing bot
-Answer added: I am fine
-current QS: ['What is your name', 'hello', 'tell me your name?', 'what do you do?', 'locations', 'thank you so much', 'where do you live', 'what is your location', 'where do you live', 'what kinda work do you do', 'what kinda work do you do', 'how can i help you', 'how can i help you', 'how are you doing bot']
- Answers: ['chatbot', 'hi', 'chatbot', 'I chat', 'India', 'welcome', 'India', 'India', 'India', 'I Chat', 'I Chat', 'I am here to help you not the other way round', 'I am here to help you not the other way round', 'I am fine']
-Question added to dataBase - lets toast bot
-Answer added: I am virtual you idiot
-current QS: ['What is your name', 'hello', 'tell me your name?', 'what do you do?', 'locations', 'thank you so much', 'where do you live', 'what is your location', 'where do you live', 'what kinda work do you do', 'what kinda work do you do', 'how can i help you', 'how can i help you', 'how are you doing bot', 'lets toast bot']
- Answers: ['chatbot', 'hi', 'chatbot', 'I chat', 'India', 'welcome', 'India', 'India', 'India', 'I Chat', 'I Chat', 'I am here to help you not the other way round', 'I am here to help you not the other way round', 'I am fine', 'I am virtual you idiot']
-load_model: loaded model
-find_similiar: "give me a toast"
+Question added to dataBase - Hey
+Answer added: Hello, I am CommBot
+Question added to dataBase - Hello
+Answer added: Hello, I am CommBot
+Question added to dataBase - Hi
+Answer added: Hello, I am CommBot
+find_similiar: "Hi"
+find_similiar: "Konichiwa"
+Question added to dataBase - What services do you provide?
+Answer added: Servers, IT security, routers.......
+Question added to dataBase - What solutions do you provide?
+Answer added: Servers, IT security, routers.......
+find_similiar: "I want Solutions"
+find_similiar: "what solutions do you offer?"
+find_similiar: "what services do you offer?"
 """
 
 
