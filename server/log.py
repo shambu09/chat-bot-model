@@ -2,21 +2,6 @@ log_file = """
 ------------------Log File-------------------
 
 load_model: loaded model
-Question added to dataBase - Hey
-Answer added: Hello, I am CommBot
-Question added to dataBase - Hello
-Answer added: Hello, I am CommBot
-Question added to dataBase - Hi
-Answer added: Hello, I am CommBot
-find_similiar: "Hi"
-find_similiar: "Konichiwa"
-Question added to dataBase - What services do you provide?
-Answer added: Servers, IT security, routers.......
-Question added to dataBase - What solutions do you provide?
-Answer added: Servers, IT security, routers.......
-find_similiar: "I want Solutions"
-find_similiar: "what solutions do you offer?"
-find_similiar: "what services do you offer?"
 """
 
 

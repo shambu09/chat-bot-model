@@ -1,14 +1,15 @@
 import numpy as np
 from log import Logger
+
 Logger.clear()
 log = Logger.log
 
 from flask import Flask, request
+
 app = Flask(__name__)
 
 from model import load_model, find_similiar
 from utils import read_ans, read_qs, write_ans, write_qs
-
 
 #-------------Load Data--------------#
 QS_S = read_qs()
@@ -32,31 +33,31 @@ def reload_db():
 
 
 #-------------------Reply with most similiar answer-----------------------#
-@app.route('/',methods = ['POST'])
+@app.route('/', methods=['GET'])
 def answer():
-        data = request.args
-        qs = data["qs"]
-        u_embedding = sBert.encode(qs)
-        labels, similarity = find_similiar(qs, u_embedding, t_embeddings)
-        
-        if similarity > 0.1:
-            return ANS_S[labels]
-
-        return "Sorry I didn't get you!"
+    data = request.args
+    qs = data["qs"]
+    u_embedding = sBert.encode(qs)
+    labels, similarity = find_similiar(qs, u_embedding, t_embeddings)
+    print(request.args)
+    print(similarity)
+    if similarity > 0.3:
+        return ANS_S[labels]
+    return "Sorry I didn't get you!"
 
 
 #------------------Add Question-Answer pairs-------------------------------#
-@app.route('/add',methods = ['POST'])
+@app.route('/add', methods=['GET'])
 def add():
     global QS_S
     global ANS_S
-
+    print(request.args)
     data = request.args
     qs = str(data["qs"])
     ans = str(data["ans"])
-    
+
     log("Question added to dataBase - " + qs)
-    log("Answer added: "+ ans)
+    log("Answer added: " + ans)
 
     QS_S.append(qs)
     ANS_S.append(ans)
@@ -65,6 +66,15 @@ def add():
 
     reload_db()
     return "Add OK"
+
+
+@app.route('/clear', methods=['GET'])
+def clear():
+    write_ans([])
+    write_qs([])
+    reload_db()
+    return "Clear OK"
+
 
 if __name__ == '__main__':
     reload_db()
