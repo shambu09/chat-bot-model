@@ -10,14 +10,11 @@ import os
 import gzip
 import csv
 
-#### Just some code to print debug information to stdout
 logging.basicConfig(format='%(asctime)s - %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S',
                     level=logging.INFO,
                     handlers=[LoggingHandler()])
-#### /print debug information to stdout
 
-#Check if dataset exsist. If not, download and extract  it
 nli_dataset_path = 'data/AllNLI.tsv.gz'
 sts_dataset_path = 'data/stsbenchmark.tsv.gz'
 
@@ -28,20 +25,16 @@ if not os.path.exists(sts_dataset_path):
     util.http_get('https://sbert.net/datasets/stsbenchmark.tsv.gz', sts_dataset_path)
 
 
-#You can specify any huggingface/transformers pre-trained model here, for example, bert-base-uncased, roberta-base, xlm-roberta-base
 model_name = sys.argv[1] if len(sys.argv) > 1 else 'bert-base-uncased'
 
-# Read the dataset
 train_batch_size = 16
 
 
 model_save_path = 'output/training_nli_'+model_name.replace("/", "-")+'-'+datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
 
-# Use Huggingface/transformers model (like BERT, RoBERTa, XLNet, XLM-R) for mapping tokens to embeddings
 word_embedding_model = models.Transformer(model_name)
 
-# Apply mean pooling to get one fixed sized sentence vector
 pooling_model = models.Pooling(word_embedding_model.get_word_embedding_dimension(),
                                pooling_mode_mean_tokens=True,
                                pooling_mode_cls_token=False,
@@ -80,7 +73,6 @@ with gzip.open(sts_dataset_path, 'rt', encoding='utf8') as fIn:
 
 dev_evaluator = EmbeddingSimilarityEvaluator.from_input_examples(dev_samples, batch_size=train_batch_size, name='sts-dev')
 
-# Configure the training
 num_epochs = 1
 
 warmup_steps = math.ceil(len(train_dataloader) * num_epochs * 0.1) #10% of train data for warm-up
@@ -96,13 +88,6 @@ model.fit(train_objectives=[(train_dataloader, train_loss)],
           output_path=model_save_path
           )
 
-
-
-##############################################################################
-#
-# Load the stored model and evaluate its performance on STS benchmark dataset
-#
-##############################################################################
 
 test_samples = []
 with gzip.open(sts_dataset_path, 'rt', encoding='utf8') as fIn:
