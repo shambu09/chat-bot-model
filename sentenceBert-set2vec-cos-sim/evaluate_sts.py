@@ -9,13 +9,11 @@ import os
 import gzip
 import csv
 
-#### Just some code to print debug information to stdout
 logging.basicConfig(format='%(asctime)s - %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S',
                     level=logging.INFO,
                     handlers=[LoggingHandler()])
 
-#Check if dataset exsist. If not, download and extract  it
 sts_dataset_path = 'data/stsbenchmark.tsv.gz'
 
 if not os.path.exists(sts_dataset_path):
@@ -24,12 +22,6 @@ if not os.path.exists(sts_dataset_path):
 model_save_path = "models/bert-base-nli-mean-tokens/"
 
 train_batch_size = 16
-
-##############################################################################
-#
-# Load the stored model and evaluate its performance on STS benchmark dataset
-#
-##############################################################################
 
 test_samples = []
 with gzip.open(sts_dataset_path, 'rt', encoding='utf8') as fIn:
